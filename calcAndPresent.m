@@ -1,10 +1,10 @@
-# returns trajectory t, [x1, x1', x2, x2'] and delta, delta', R
-# drows one row (3 plots) in figure
+% returns trajectory t, [x1, x1', x2, x2'] and delta, delta', R
+% drows one row (3 plots) in figure
 function [t, y, deltas, ddeltas, rs] = calcAndPresent(params, interval, startPoint, options, subplotNumber)
-  # calculate trajectory t, [x1, x1', x2, x2']
+  % calculate trajectory t, [x1, x1', x2, x2']
   [t, y] = ode45(@(t, y) vectorField(t, y, params), interval, startPoint, options);
   
-  # calculate data for pictures
+  % calculate data for pictures
   deltas = [];
   ddeltas = [];
   rs = [];
@@ -14,7 +14,7 @@ function [t, y, deltas, ddeltas, rs] = calcAndPresent(params, interval, startPoi
     rs(i) = rFunc(y(i, :), params);
   end
   
-  # drawing pictures
+  % drawing pictures
   subplot(2, 3, subplotNumber);
   plot(deltas, ddeltas, '*-r', 'LineWidth', 2);
   hold off;
