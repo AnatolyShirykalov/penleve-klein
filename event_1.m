@@ -1,4 +1,4 @@
 function [value,isterminal,direction] = event_1(t,y)
-  value = max(abs(y));
+  value = max(abs([y(2), y(4)]));
   isterminal = 1;
   direction = 0;
